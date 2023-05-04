@@ -1,3 +1,4 @@
+# create a script that adds a watermark to an image stored in an AWS s3 instance and saves the new image in the s3 instance
 import boto3
 from PIL import Image
 
