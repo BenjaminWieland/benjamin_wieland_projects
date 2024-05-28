@@ -1,0 +1,4 @@
+distribution of orders (Anzahl der Bestellungen pro Monat): SELECT COUNT(orderNumber) AS numberOrders, orderDate FROM orders GROUP BY date_format(orderDate, '%Y-%m');
+best customers (Die top 10 Kunden, die am meisten Bestellungen getätigt haben): SELECT COUNT(orderNumber) AS numberOrders, customerName FROM orders LEFT JOION customers ON orders.customerNumber = customers.customerNumber GROUP BY customerName ORDER BY count(orderNumber) DESC LIMIT 10;
+busy Sales Reps (Die top 10 Sales Reps, welche die meisten Kunden betreuen): SELECT firstName AS salesRepFirstName, lastName  AS salesRepLastName, COUNT(customerNumber) AS numberCustomers FROM employees LEFT JOIN customers ON employees.employeeNumber = customers.salesRepEmployeeNumber GROUP BY lastName ORDER BY COUNT(customerNumber) DESC LIMIT 10;
+customer overview (Anzahl an Kunden pro Land): SELECT COUNT(customerNumber) AS numberCustomers, country FROM customers GROUP BY country ORDER BY count(country) DESC; 
